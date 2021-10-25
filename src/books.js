@@ -1,13 +1,17 @@
 function findAuthorById(authors, id) {
   // Use the find method to find matching ID
-  const found = authors.find((author) => author.id == id);
+  const found = idFinder(authors, id);
   return found;
 }
 
 function findBookById(books, id) {
   // Use the find method to find matching ID
-  const found = books.find((book) => book.id == id);
+  const found = idFinder(books, id);
   return found;
+}
+
+function idFinder(array, id) {
+  return array.find((index) => index.id == id);
 }
 
 function partitionBooksByBorrowedStatus(books) {
