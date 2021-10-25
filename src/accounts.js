@@ -44,7 +44,6 @@ function getBooksPossessedByAccount(account, books, authors) {
 
     // Push the author info into our object info
     const borrowedBooks = {...borrowedBooks, author: id};
-    console.log(result);
   }
   console.log(borrowedBooks);
   return result;
