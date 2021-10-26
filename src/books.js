@@ -30,10 +30,10 @@ function getBorrowersForBook(book, accounts) {
     
   let result = book.borrows.map(borrower => { 
     let result = accounts.find(account => borrower.id === account.id )
-    result.returned = borrower.returned 
-    return result
+    result.returned = borrower.returned;
+    return result;
    })
-   return result.filter((borrower, index)=> result.findIndex(item => item.id === borrower.id) === index) 
+   return result.filter((borrower, index)=> result.findIndex(item => item.id === borrower.id) === index);
  
 }
 
