@@ -22,14 +22,14 @@ function partitionBooksByBorrowedStatus(books) {
   const currentlyReturned = books.filter((book) => book.borrows[0].returned == true);
 
   // Create our array
-  let result = [currentlyChecked, currentlyReturned];
+  const result = [currentlyChecked, currentlyReturned];
   return result;
 }
 
 function getBorrowersForBook(book, accounts) {
     
-  let result = book.borrows.map(borrower => { 
-    let result = accounts.find(account => borrower.id === account.id )
+  const result = book.borrows.map(borrower => { 
+    const result = accounts.find(account => borrower.id === account.id )
     result.returned = borrower.returned;
     return result;
    })
