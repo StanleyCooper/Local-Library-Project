@@ -32,7 +32,7 @@ function getMostCommonGenres(books) {
 
 function getMostPopularBooks(books) {
   const sliceEnd = books.length > 5 ? 5 : books.length;
-  return books
+  return books;
 .map(book => {
       return {
         name: book.title,
@@ -55,7 +55,7 @@ function getMostPopularAuthors(books, authors) {
         returnAuthor.count += book.borrows.length;
       }
     })
-    result.push(returnAuthor)
+    result.push(returnAuthor);
   })
   return result.sort((a,b) => b.count - a.count).slice(0, 5);
 }
