@@ -12,25 +12,25 @@ function sortAccountsByLastName(accounts) {
 }
 
 function getTotalNumberOfBorrows(account, books) {
-  // Grab account id
+   // Grab account id
   const userId = account.id;
-  let total = 0;
-  
-  // Cycle through books
-  for (let book in books) {
-    let borrowRecord = books[book].borrows;
+   
+  let accumulator = 0;
+  const total = books.reduce((acc, book) => {
+    let borrowRecord = book.borrows;
     let mapIds = borrowRecord.map((record) => record.id);
-
-    // Check if borrows includes id
-    if (mapIds.includes(userId)) total++;
-  }
+    if (mapIds.includes(userId)) acc++;
+    return acc;
+  }, accumulator);
+  
   return total;
 }
 
 function getBooksPossessedByAccount(account, books, authors) {
   return books.filter((book) => book.borrows.some(acc => acc.id === account.id && acc.returned === false))
     .map(book => { let author = authors.find(author => author.id === book.authorId)
-      book.author = author; return book         
+      book.author = author; 
+      return book;         
  })  
 }
 
