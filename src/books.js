@@ -33,7 +33,7 @@ function getBorrowersForBook(book, accounts) {
     result.returned = borrower.returned 
     return result
    })
-   return result.filter((borrower, i)=> result.findIndex(item => item.id === borrower.id) === i) 
+   return result.filter((borrower, index)=> result.findIndex(item => item.id === borrower.id) === index) 
  
 }
 

@@ -16,8 +16,8 @@ function getMostCommonGenres(books) {
   const genre = books.map((book) => book.genre);
   let result = [];
   let count = {};
-  genre.forEach(function (i) {
-    count[i] = (count[i] || 0) + 1;
+  genre.forEach(function (index) {
+    count[index] = (count[index] || 0) + 1;
   });
   for (let key in count) {
     result.push({

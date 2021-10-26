@@ -28,25 +28,10 @@ function getTotalNumberOfBorrows(account, books) {
 }
 
 function getBooksPossessedByAccount(account, books, authors) {
-  // Grab account id
-  const userId = account.id;
-  // Filter through books to find book with borrows from the given account
-  const borrowedBooks = books.filter((book) =>
-    // Filter only if id matches given id and book is not returned
-    book.borrows.some((borrow) => borrow.id === userId && borrow.returned === false));
-  // Grab author Ids and push into our object
-  for (let borrows in borrowedBooks) {
-    // current book
-    const current = borrowedBooks[borrows];
-    // grab the author ID
-    const id = authors.find((author) => current.authorId === author.id);
-    console.log(id);
-
-    // Push the author info into our object info
-    const borrowedBooks = {...borrowedBooks, author: id};
-  }
-  console.log(borrowedBooks);
-  return result;
+  return books.filter((book) => book.borrows.some(acc => acc.id === account.id && acc.returned === false))
+    .map(book => { let author = authors.find(author => author.id === book.authorId)
+      book.author = author; return book         
+ })  
 }
 
 module.exports = {
